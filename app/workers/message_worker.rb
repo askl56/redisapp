@@ -5,6 +5,5 @@ class MessageWorker
 
   def perform(user, body, url)
     Message.new(user, body, url).send
-
   end
 end

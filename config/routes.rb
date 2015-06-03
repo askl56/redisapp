@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'emails/index'
+
+  get 'emails/standard'
+
+  get 'emails/delayed'
+
   resources :letters, only: [ :index ] do
     member do
       patch :upvote # /letters/4/upvote
