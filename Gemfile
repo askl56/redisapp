@@ -25,6 +25,7 @@ gem 'redcarpet'
 gem 'redis'
 gem 'redis-rails'
 gem 'sidekiq'
+gem 'httparty'
 
 gem 'puma'
 

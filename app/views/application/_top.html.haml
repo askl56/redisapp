@@ -1,8 +1,9 @@
 %h2 Top 10
 
--cache top_letters_cache_key do
-  %ol
-    -Letter.top_10.each do |letter|
-      %li
-        =letter.name
-        %small=letter.score
+%ol
+  -Letter.top_10.each do |letter|
+    %li
+      =letter.name
+      %small=letter.score
+      =link_to raw("&#x25B2;"), upvote_letter_path(letter), method: :patch
+      =link_to raw("&#x25BC;"), downvote_letter_path(letter), method: :patch

@@ -1,7 +1,6 @@
 class LetterRedisRepository
   def self.top
-    redis = Redis.new
-    list = redis.zrevrange 'top_letters', 0, 9
+    list = redis.zrevrange "top_letters", 0, 9
 
     if list.empty?
       letters = Letter.limit(10).order(score: :desc)
@@ -12,7 +11,19 @@ class LetterRedisRepository
     else
       return list
     end
+  end
 
-    letters
+  def self.increment letter
+    redis.zincrby "top_letters", 1, letter.id
+  end
+
+  def self.decrement letter
+    redis.zincrby "top_letters", -1, letter.id
+  end
+
+  private
+
+  def self.redis
+    @redis ||= Redis.new
   end
 end

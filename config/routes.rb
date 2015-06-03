@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :letters, only: [ :index ]
+  resources :letters, only: [ :index ] do
+    member do
+      patch :upvote # /letters/4/upvote
+      patch :downvote # /letters/4/downvote
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
