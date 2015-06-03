@@ -1,0 +1,11 @@
+%h1 Letters
+
+.col-md-9
+  %ul
+    -@letters.each do |letter|
+      %li
+        =letter.name
+        %small=letter.score
+
+.col-md-3
+  =render "top"

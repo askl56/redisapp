@@ -1,0 +1,8 @@
+%h2 Top 10
+
+-cache top_letters_cache_key do
+  %ol
+    -Letter.top_10.each do |letter|
+      %li
+        =letter.name
+        %small=letter.score
